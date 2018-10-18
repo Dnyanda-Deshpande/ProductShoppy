@@ -1,0 +1,73 @@
+[
+    {
+        "productId": 1,
+        "category": "electronics",
+        "subCategory": "Mobile",
+        "name": "Lenovo k4 note",
+        "price": "12000",
+        "discount":20,
+        "imageUrl": "",
+        "description" : "Octacore Processor, 4GB RAM, 32GB ROM, One Year Warranty",
+        "battery": "4000 mAh Li Polymer Battery",
+        "brand": "Lenovo",
+        "rating":4,
+        "buy":true,
+        "availableProducts":"6"
+    },
+    {
+        "productId": 2,
+        "category": "electronics",
+        "subCategory": "Laptop",
+        "name": "HP notebook",
+        "price": "39499",
+        "discount":8,
+        "imageUrl": "",
+        "description" : "Intel i5 core, 8GB RAM, 1TB ROM, 15.6 inch display, One Year Warranty",
+        "brand": "HP",
+        "rating":4,
+        "buy":true,
+        "availableProducts":"6"
+    },
+    {
+        "productId":3,
+        "category":"clothing",
+        "subCategory":"Women",
+        "name":"women's printed straight kurta",
+        "price":898,
+        "discount":35,
+        "size":[
+            {
+                "s1":"S",
+                "s2":"M",
+                "s3":"XL"
+            }
+        ],
+        "imageUrl": "",
+        "description":"Viscose Fabric Printed Kurta",
+        "brand":"W",
+        "rating":"5",
+        "buy":"true",
+        "availableProducts":"6"
+    },
+    {
+        "productId":4,
+        "category":"clothing",
+        "subCategory":"Men",
+        "name":"Peter England Men Solid Formal Shirt",
+        "price":898,
+        "discount":35,
+        "size":[
+            {
+                "s1":"S",
+                "s2":"M",
+                "s3":"XL"
+            }
+        ],
+        "imageUrl": "",
+        "description":"Cotton Full Sleeves",
+        "brand":"Peter England",
+        "rating":"5",
+        "buy":"true",
+        "availableProducts":"6"
+    }
+]
