@@ -11,7 +11,7 @@ function loginAdmin() {
 	}
 }
 
-$(document).ready(function(){
+/*$(document).ready(function(){
    
     $.getJSON("../json/data.json", function(result){
         $.each(result, function(i, field){
@@ -20,4 +20,24 @@ $(document).ready(function(){
         });
     });
 
+});*/
+
+
+$(document).ready(function(){
+    var productData = [];
+    var categoriesSet = new Set(); 
+    $.get("../json/data.json", function(result) {
+        productData = result;
+      (function() {
+            for (var product of productData) {
+              categoriesSet.add(product.category);
+            }
+            var parentListItem = document.getElementById("navCategories");
+            for (var item of categoriesSet) {
+              var childListItem = document.createElement("li");
+              childListItem.innerHTML = item;
+              parentListItem.appendChild(childListItem);
+            }
+          }());
+        });
 });

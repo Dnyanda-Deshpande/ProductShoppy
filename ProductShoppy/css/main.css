@@ -39,3 +39,7 @@ p {
     bottom: 60px;
     right: 60px;
 }
+
+#navCategories{
+        cursor: default;       
+}
