@@ -35,13 +35,7 @@
         "name":"women's printed straight kurta",
         "price":898,
         "discount":35,
-        "size":[
-            {
-                "s1":"S",
-                "s2":"M",
-                "s3":"XL"
-            }
-        ],
+        "size":["S","M","XL" ],
         "imageUrl": "",
         "description":"Viscose Fabric Printed Kurta",
         "brand":"W",
@@ -56,13 +50,7 @@
         "name":"Peter England Men Solid Formal Shirt",
         "price":898,
         "discount":35,
-        "size":[
-            {
-                "s1":"S",
-                "s2":"M",
-                "s3":"XL"
-            }
-        ],
+        "size":["S","M","XL"],
         "imageUrl": "",
         "description":"Cotton Full Sleeves",
         "brand":"Peter England",
