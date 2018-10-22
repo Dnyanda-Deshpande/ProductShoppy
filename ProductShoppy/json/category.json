@@ -1,35 +1,37 @@
-[
-    {
-        "categoryName": "Electronics",
-        "sub_categories": [
-            {
-                "name": "Laptop"
-            },
-            {
-                "name": "Mobile"
-            }
-        ]
-    },
-    {
-        "categoryName": "Clothing",
-        "sub_categories": [
-            {
-                "name": "men"
-            },
-            {
-                "name": "women"
-            }
-        ]
-    },
-    {
-        "categoryName": "Footwear",
-        "sub_categories": [
-            {
-                "name": "men"
-            },
-            {
-                "name": "women"
-            }
-        ]
-    }
-]
+{
+    "productCategories": [
+        {
+            "category": "Electronics",
+            "subCategory": [
+                {
+                    "name": "Laptop"
+                },
+                {
+                    "name": "Mobile"
+                }
+            ]
+        },
+        {
+            "category": "Clothing",
+            "subCategory": [
+                {
+                    "name": "men"
+                },
+                {
+                    "name": "women"
+                }
+            ]
+        },
+        {
+            "category": "Footwear",
+            "subCategory": [
+                {
+                    "name": "men"
+                },
+                {
+                    "name": "women"
+                }
+            ]
+        }
+    ]
+}

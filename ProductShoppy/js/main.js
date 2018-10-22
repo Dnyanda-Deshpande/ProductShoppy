@@ -14,33 +14,74 @@ function loginAdmin() {
 /**********displaying catergories with sub categories****************/
 $(document).ready(function(){
     $.getJSON("../json/category.json",function(result){
-        $.each(result, function(i,category){
+        $.each(result.productCategories, function(i,category){
             var subMenuData='';
-            $.each(category.sub_categories, function(i,sub_categories){
-                subMenuData += "<li><a>"+sub_categories.name+"</a></li>";
+            $.each(category.subCategory, function(i,sub_categories){
+                subMenuData += "<li style='list-style-type: none'><a>"+sub_categories.name+"</a></li>";
 
             });
-                var mainMenuData ="<li><a>"+category.categoryName+
-                "</a><ul>"+subMenuData+"</ul></li>";
+                var mainMenuData ="<li><a>"+category.category+
+                "</a><ul class='sub-menu'>"+subMenuData+"</ul></li>";
             $(mainMenuData).appendTo("#navCategories");
+        });
+
+        /*********  menu toggle ***********/
+        $(".sub-menu").hide();
+        $("#navCategories li").not($('#navCategories li sub-menu li a')).click(function () {
+            $('ul.sub-menu').not( $(this).children() ).slideUp();
+            $(this).children("ul.sub-menu").slideToggle();
         });
     });
 
+    
 
 
     /*****getting all data*****************/
     $.getJSON("../json/data.json",function(data){
         var productData = '';
-        $.each(data,function(key,value){
-         
-            productData += '<tr><td  style="padding-right: 250px" rowspan="5"><img src= '+value.imageUrl+ ' width="200px" height="350px"></td></tr>';
-            productData += '<tr><td>' + value.name+ '</td></tr>';
-            productData += '<tr><td>' + value.price+ '</td></tr>';
-            productData += '<tr><td> <button  class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Add to Cart</button></tr>';
-            productData += '<tr><td> <button  class="btn btn-danger"><span class="glyphicon glyphicon-heart"></span> Add To wishList</button></tr>';
-        
+        $.each(data.products,function(key,value){
+            productData += '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">';
+            productData += '<img class="card-img-top" src= '+value.imageUrl+ ' height="300px" width="200px">';
+            productData += '<div class="card">';
+            productData += '<h4 >' + value.name+ '</h4>' +value.price ;
+         //  productData += '<p>'+value.price+'</p>';
+            productData += '</div>';
+            productData += '<button  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>'+"  "+'<button  class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>';
+            //productData += ;      
+            productData +='</div>';
         });
         $("#productDataTable").append(productData);
     })
 
+
+
+
+
+    /******* searching products *******/
+   /* $("#searchProductId").keydown(function(){
+        //$("#result").html('');
+       
+        $.getJSON('../json/data.json',function(data){
+            var searchField = $("#searchProductId").val();
+            var expression = new RegExp(searchField,'i');
+            var output;
+            $.each(data,function(key,value){
+                if(value.name.search(expression) != -1)
+                {
+                   output += "<p>" +value.name+"</p>";
+                }
+            });
+            $("#result").html(output);
+        });
+
+    });*/
 });
+
+
+
+/*
+function displayProduct(subCategory){
+   console.log(subCategory);
+}*/
+
+
