@@ -13,6 +13,47 @@
 </head>
 <body>
   <script src="cart.js" type="text/javascript"></script>
+
+  <nav class="navbar navbar-expand navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">ShopperStory</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+        <li>
+          <form class="navbar-form" role="search" id="searchForm">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="searchProduct" id="search">
+                <!-- <ul class="list-group" id="result"></ul> -->
+            </div>
+            </form>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#">
+            <span class="glyphicon glyphicon-heart"></span> Wish List</a>
+        </li>
+        <li>
+          <a href="./cart/mobile.html">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Cart</a>
+        </li>
+        <li>
+          <a href="#" data-toggle="modal" data-target="#myModal">
+            <span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <div class="cartllass" id="productDataTable"></div>
 </body>
 </html>

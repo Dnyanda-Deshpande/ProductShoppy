@@ -27,7 +27,7 @@ $(document).ready(function () {
             productData += '<div class="card">';
             productData += '<h4 >' + value.name + '</h4>' + value.price + value.productId;
             productData += '</div>';
-            productData += '<button  class="btn btn-info btn-sm" id=' + value.productId + ' onclick="addToCart(' + value.productId + ')"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>' + "  " + '<button  class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>';
+            productData += '<button  class="btn btn-sucess btn-sm" id=' + value.productId + ' onclick="buy(' + value.productId + ')"><span class="glyphicon glyphicon-shopping-ok"></span> Buy</button>' + "  " + '<button  class="btn btn-danger btn-sm" id=' + value.productId + ' onclick="removeFromCart(' + value.productId + ')"><span class="glyphicon glyphicon-trash"></span> Remove</button><br/><br/>';
             productData += '</div>';
         });
         $("#productDataTable").empty();
@@ -37,3 +37,9 @@ $(document).ready(function () {
 
 
 });
+
+
+function removeFromCart(e)
+{
+    alert(e);
+}
