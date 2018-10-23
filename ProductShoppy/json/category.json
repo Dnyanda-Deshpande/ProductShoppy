@@ -26,10 +26,10 @@
             "category": "Footwear",
             "subCategory": [
                 {
-                    "name": "men"
+                    "name": "Men"
                 },
                 {
-                    "name": "women"
+                    "name": "Women"
                 }
             ]
         }

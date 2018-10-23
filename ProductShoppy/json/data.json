@@ -146,7 +146,7 @@
         {
             "productId": "F1",
             "category": "footwear",
-            "subCategory": "men",
+            "subCategory": "Men",
             "name": "Reebok Ripple Voyager Xtreme Runninng Shoes",
             "price": 1819,
             "discount": 15,
@@ -167,7 +167,7 @@
         {
             "productId": "F2",
             "category": "footwear",
-            "subCategory": "men",
+            "subCategory": "Men",
             "name": "Reebok Top Speed Xtreme Runninng Shoes",
             "price": 1679,
             "discount": 10,
@@ -188,7 +188,7 @@
         {
             "productId": "F3",
             "category": "footwear",
-            "subCategory": "men",
+            "subCategory": "Men",
             "name": "Sparx Walking Shoes Shoes",
             "price": 687,
             "discount": 35,
@@ -209,7 +209,7 @@
         {
             "productId": "F4",
             "category": "footwear",
-            "subCategory": "women",
+            "subCategory": "Women",
             "name": "Myra Women Rich Brown Flats",
             "price": 599,
             "discount": 10,

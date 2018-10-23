@@ -17,10 +17,10 @@ $(document).ready(function(){
         $.each(result.productCategories, function(i,category){
             var subMenuData='';
             $.each(category.subCategory, function(i,sub_categories){
-                subMenuData += "<li style='list-style-type: none'><a onClick='displayProductData($(this).closest('li').text(),$(this).text());'>"+sub_categories.name+"</a></li>";
+                subMenuData += "<li style='list-style-type: none; text-transform: capitalize;'><a onClick='displayProductData($(this).text());'>"+sub_categories.name+"</a></li>";
 
             });
-                var mainMenuData ="<li id="+ category.category+" onclick='saveLi("+category.category+")'><a>"+category.category+
+                var mainMenuData ="<li id="+ category.category+"><a>"+category.category+
                 "</a><ul class='sub-menu'>"+subMenuData+"</ul></li>";
             $(mainMenuData).appendTo("#navCategories");
         });
@@ -38,21 +38,20 @@ $(document).ready(function(){
 
 
     /*****getting all data*****************/
-    $.getJSON("../json/data.json",function(data){
+   $.getJSON("../json/data.json",function(data){
         var productData = '';
         $.each(data.products,function(key,value){
             productData += '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">';
             productData += '<img class="card-img-top" src= '+value.imageUrl+ ' height="300px" width="200px">';
             productData += '<div class="card">';
             productData += '<h4 >' + value.name+ '</h4>' +value.price ;
-         //  productData += '<p>'+value.price+'</p>';
             productData += '</div>';
-            productData += '<button  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>'+"  "+'<button  class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>';
-            //productData += ;      
+            productData += '<button  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>'+"  "+'<button  class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>'; 
             productData +='</div>';
         });
+        $("#productDataTable").empty();
         $("#productDataTable").append(productData);
-    })
+    });
 
 
 
@@ -79,32 +78,46 @@ $(document).ready(function(){
 });
 
 
-
-function displayProductData(mainCat,subCategory){
+/*********display perticular data*************/
+function displayProductData(subCategory){
 
   
-    alert(mainCat);
-    alert(subCategory);
-    /*  $.getJSON("../json/data.json",function(data){
+   // alert(mainCat);
+   $(".slideDiv").hide();
+    console.log(subCategory);
+    $.getJSON("../json/data.json",function(data){
         var perticularData = [];
         $.each(data.products, function(key,value){
-            console.log(localStorage.getItem('category'))
-            if(value.category == (localStorage.getItem('category')))
+           // console.log(localStorage.getItem('category'))
+            if(value.subCategory == subCategory)
             {
               // window.location = "login.html";
-              console.log(1)
                perticularData.push(value);
-               console.log(perticularData);
             }
-        })
+        });
+        //console.log(perticularData);
+
+        var productData = '';
+        $.each(perticularData,function(key,value){
+            productData += '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">';
+            productData += '<img class="card-img-top" src= '+value.imageUrl+ ' height="300px" width="200px">';
+            productData += '<div class="card">';
+            productData += '<h4 >' + value.name+ '</h4>' +value.price ;
+            productData += '</div>';
+            productData += '<button  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>'+"  "+'<button  class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>';    
+            productData +='</div>';
+        });
+        $("#productDataTable").empty();
+        $("#productDataTable").append(productData);
         
-    });*/
+    });
   
 }
 
+/*
 var saveLi = function(e){
     localStorage.setItem('category',e.id);
     console.log(e.id)
-}
+}*/
 
 
