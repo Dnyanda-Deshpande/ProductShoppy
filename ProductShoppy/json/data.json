@@ -32,7 +32,7 @@
         {
             "productId": "C1",
             "category": "clothing",
-            "subCategory": "Women",
+            "subCategory": "women",
             "name": "W women's printed straight kurta",
             "price": 898,
             "discount": 35,
@@ -51,7 +51,7 @@
         {
             "productId": "C2",
             "category": "clothing",
-            "subCategory": "Women",
+            "subCategory": "women",
             "name": "W women's printed Flared kurta",
             "price": 1098,
             "discount": 10,
@@ -70,7 +70,7 @@
         {
             "productId": "C3",
             "category": "clothing",
-            "subCategory": "Women",
+            "subCategory": "women",
             "name": "Aurelia women's printed straight kurta",
             "price": 517,
             "discount": 2,
@@ -89,7 +89,7 @@
         {
             "productId": "C4",
             "category": "clothing",
-            "subCategory": "Men",
+            "subCategory": "men",
             "name": "Peter England Men Solid Formal Shirt",
             "price": 898,
             "discount": 35,
@@ -108,7 +108,7 @@
         {
             "productId": "C5",
             "category": "clothing",
-            "subCategory": "Men",
+            "subCategory": "men",
             "name": "Levi's Striped Men Polo Neck T-shirt",
             "price": 1158,
             "discount": 5,
@@ -127,7 +127,7 @@
         {
             "productId": "C6",
             "category": "clothing",
-            "subCategory": "Men",
+            "subCategory": "men",
             "name": "Levi's Printed Men Round Neck T-shirt",
             "price": 898,
             "discount": 35,
@@ -146,7 +146,7 @@
         {
             "productId": "F1",
             "category": "footwear",
-            "subCategory": "Men",
+            "subCategory": "men",
             "name": "Reebok Ripple Voyager Xtreme Runninng Shoes",
             "price": 1819,
             "discount": 15,
@@ -167,7 +167,7 @@
         {
             "productId": "F2",
             "category": "footwear",
-            "subCategory": "Men",
+            "subCategory": "men",
             "name": "Reebok Top Speed Xtreme Runninng Shoes",
             "price": 1679,
             "discount": 10,
@@ -188,7 +188,7 @@
         {
             "productId": "F3",
             "category": "footwear",
-            "subCategory": "Men",
+            "subCategory": "men",
             "name": "Sparx Walking Shoes Shoes",
             "price": 687,
             "discount": 35,
@@ -209,7 +209,7 @@
         {
             "productId": "F4",
             "category": "footwear",
-            "subCategory": "Women",
+            "subCategory": "women",
             "name": "Myra Women Rich Brown Flats",
             "price": 599,
             "discount": 10,
