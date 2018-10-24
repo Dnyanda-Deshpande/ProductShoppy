@@ -43,37 +43,15 @@ $(document).ready(function () {
             productData += '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">';
             productData += '<img class="card-img-top" src= ' + value.imageUrl + ' height="300px" width="200px">';
             productData += '<div class="card">';
-            productData += '<h4 >' + value.name + '</h4>' + value.price;
+            productData += '<h4 >' + value.name + '</h4>' + 'Rs.' + value.price;
             productData += '</div>';
-            productData += '<button  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>' + "  " + '<button  class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>';
+            //productData += '<button  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>' + "  " + '<button  class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>';
             productData += '</div>';
         });
         $("#productDataTable").empty();
         $("#productDataTable").append(productData);
     });
 
-
-
-
-
-    /******* searching products *******/
-    /* $("#searchProductId").keydown(function(){
-         //$("#result").html('');
-        
-         $.getJSON('../json/data.json',function(data){
-             var searchField = $("#searchProductId").val();
-             var expression = new RegExp(searchField,'i');
-             var output;
-             $.each(data,function(key,value){
-                 if(value.name.search(expression) != -1)
-                 {
-                    output += "<p>" +value.name+"</p>";
-                 }
-             });
-             $("#result").html(output);
-         });
- 
-     });*/
 });
 
 
@@ -104,7 +82,7 @@ function displayProductData(subCategory) {
             productData += '<div class="card">';
             productData += '<h4 >' + value.name + '</h4>' + value.price;
             productData += '</div>';
-            productData += '<button  class="btn btn-info btn-sm" id=' + value.productId + ' onclick="addToCart(' + value.productId + ')"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>' + "  " + '<button  class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>';
+            productData += '<button  class="btn btn-info btn-sm" id=' + value.productId + ' onclick="addToCart(' + value.productId + ')"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>' + "  " + '<button  class="btn btn-warning btn-sm" id=wish' + value.productId + ' onclick="addToWishList(' + value.productId + ')"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>';
             productData += '</div>';
         });
         $("#productDataTable").empty();
@@ -114,12 +92,11 @@ function displayProductData(subCategory) {
 
 }
 
-/*
-var saveLi = function(e){
-    localStorage.setItem('category',e.id);
-    console.log(e.id)
-}*/
 
+
+
+
+/***this function adds data to cartElements************/
 function addToCart(e) {
     if (localStorage.getItem('cartData') != null) {
         var cartElements = [];
@@ -127,9 +104,27 @@ function addToCart(e) {
         cartElements.push(e.id);
         localStorage.setItem('cartData', cartElements);
     }
-    else{
+    else {
         var cartElements = [];
         cartElements.push(e.id);
         localStorage.setItem('cartData', cartElements);
+    }
+}
+
+
+/*************add to wishlist*****************/
+function addToWishList(wishId)
+{
+    console.log("wish"+wishId.id);
+    if (localStorage.getItem('wishData') != null) {
+        var wishListElements = [];
+        wishListElements.push(localStorage.getItem('wishData'));
+        wishListElements.push("wish"+wishId.id);
+        localStorage.setItem('wishData', wishListElements);
+    }
+    else {
+        var wishListElements = [];
+        wishListElements.push("wish"+wishId.id);
+        localStorage.setItem('wishData', wishListElements);
     }
 }
