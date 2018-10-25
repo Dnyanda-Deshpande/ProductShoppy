@@ -1,0 +1,32 @@
+.navbar-header {
+    text-align: center;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 1em;
+    
+}
+h1{
+    text-align: center;
+}
+
+#myBtn {
+    
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    z-index: 99;
+    border-radius: 4px;
+  }
+
+  .imgtd{
+    padding-right: 100px;
+    padding-left: 30px;
+  }
+
+  .affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}

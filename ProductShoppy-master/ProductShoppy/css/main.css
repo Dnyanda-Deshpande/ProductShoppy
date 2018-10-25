@@ -1,0 +1,141 @@
+.nav-link{
+    text-align: center;
+    color:#cbbde2;
+}
+
+.nav-tabs>li>a {
+    background-color: #333333; 
+    border-color: #777777;
+    color:#fff;
+  }
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #fff;
+    background-color: #666;
+    border: 1px solid #888888;
+  }
+
+
+.nav-tabs>li>a:hover {
+    border-color: #000000;
+    background-color: #111111;
+  }
+form {
+    display: inline-block;
+}
+
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+div.input{
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+div.input label{
+    color: navy;
+    position: absolute;
+    top:0;
+    transform: translateY(-50%);
+    background: white;
+    left: 10px;
+    padding: 5px 2px;
+}
+
+div.input input{
+    padding: 10px 20px;
+    font-size: 25px;
+    outline: 0;
+}
+
+p {
+    color: navy;
+    border-top: 2px solid navy;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+}
+
+#navCategories{
+        cursor: default;    
+        text-align: center;   
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 1em;
+    
+}
+
+
+.card-img-top {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;   
+}
+
+.card-img-top:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.sub-menu {
+    border: 1px solid #ddd; 
+    margin-top: -1px; 
+    background-color: #f6f6f6; 
+    padding: 12px; 
+  }
+
+
+
+ /*****sidenav bar******/
+
+ .sidenav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 115px;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#productDataTable {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

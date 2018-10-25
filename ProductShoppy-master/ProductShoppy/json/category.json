@@ -1,0 +1,37 @@
+{
+    "productCategories": [
+        {
+            "category": "Electronics",
+            "subCategory": [
+                {
+                    "name": "Laptop"
+                },
+                {
+                    "name": "Mobile"
+                }
+            ]
+        },
+        {
+            "category": "Clothing",
+            "subCategory": [
+                {
+                    "name": "men"
+                },
+                {
+                    "name": "women"
+                }
+            ]
+        },
+        {
+            "category": "Footwear",
+            "subCategory": [
+                {
+                    "name": "Men"
+                },
+                {
+                    "name": "Women"
+                }
+            ]
+        }
+    ]
+}
