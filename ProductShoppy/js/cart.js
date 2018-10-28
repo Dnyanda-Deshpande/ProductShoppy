@@ -44,12 +44,15 @@ $(document).ready(function () {
 /*****removes data from cart*************/
 function removeProductFromCart(e) {
     console.log(e.id);
-    console.log(cartStoredData);
+    //console.log(cartStoredData);
+   
     cartStoredData.splice(e.id,1);
+    cartStoredData = JSON.stringify(cartStoredData);
     var element = document.getElementById("table"+e.id);
     element.parentNode.removeChild(element);
-    console.log(cartStoredData);
-    
+    localStorage.setItem('cartData',cartStoredData);
+    console.log(cartStoredData);    
+    alert("Removed Item")
 }
 
 

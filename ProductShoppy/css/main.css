@@ -1,11 +1,35 @@
-body {
+.nav-link{
     text-align: center;
+    color:#cbbde2;
 }
+
+.nav-tabs>li>a {
+    background-color: #333333; 
+    border-color: #777777;
+    color:#fff;
+  }
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #fff;
+    background-color: #666;
+    border: 1px solid #888888;
+  }
+
+
+.nav-tabs>li>a:hover {
+    border-color: #000000;
+    background-color: #111111;
+  }
 
 form {
     display: inline-block;
 }
 
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
 
 div.input{
     position: relative;
@@ -41,7 +65,9 @@ p {
 }
 
 #navCategories{
-        cursor: default;       
+        cursor: default;    
+        text-align: center;
+        top:0;
 }
 
 table {
@@ -49,7 +75,6 @@ table {
     border-spacing: 1em;
     
 }
-
 
 .card-img-top {
     border: 1px solid #ddd;
@@ -67,29 +92,3 @@ table {
     background-color: #f6f6f6; 
     padding: 12px; 
   }
-
-
-
-  .sidenav {
-    height: 70%;
-    width: 160px;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 50px;
-}
-
-.sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
