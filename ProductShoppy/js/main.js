@@ -1,14 +1,21 @@
+/********************** admin log in **************************/
 function loginAdmin() {
     var username = document.forms["adminLoginForm"]["userName"].value;
     var password = document.forms["adminLoginForm"]["AdminPassword"].value;
+    if(username == "" || password =="")
+    {
+        alert("Please Enter Values");
+    }
+    else
     if (username == "dnyanda" && password == "123") {
-        console.log("Hello");
+        
         window.location = "adminPage.html";
     }
     else {
         alert("Please Enter Valid Credentials");
     }
 }
+
 
 
 
@@ -29,7 +36,7 @@ $(document).ready(function () {
         /*********  menu toggle ***********/
         $(".sub-menu").hide();
         $("#navCategories li").not($('#navCategories li sub-menu li a')).click(function () {
-            // $('ul.sub-menu').not($(this).children()).slideUp();
+           // $('ul.sub-menu').not($(this).children()).slideUp();
             $(this).children("ul.sub-menu").slideToggle();
         });
     });
@@ -40,7 +47,7 @@ $(document).ready(function () {
     /*****getting all data*****************/
     $.getJSON("../json/data.json", function (data) {
         var productData = '';
-        $.each(data.products, function (key, value) {
+        $.each(data, function (key, value) {
             productData += '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">';
             productData += '<img class="card-img-top" src= ' + value.imageUrl + ' height="300px" width="200px">';
             productData += '<div class="card">';
@@ -64,7 +71,8 @@ function displayProductData(subCategory) {
     $.getJSON("../json/data.json", function (data) {
         var perticularData = [];
         var brandsData = [];
-        $.each(data.products, function (key, value) {
+        var discountData = [];
+        $.each(data, function (key, value) {
             // console.log(localStorage.getItem('category'))
             if (value.subCategory == subCategory) {
                 // window.location = "login.html";
@@ -78,8 +86,8 @@ function displayProductData(subCategory) {
         console.log(subCategory);
        var brandDisplayData='';
        $.each(brandsData,function(key,value){
-           brandDisplayData += '<table><tr>'+value+'</tr><tr><input type="checkbox" name="brand" id='+value+' onclick="applyFilterOnBrand('+value+')"/></tr></table>';
-       });
+           brandDisplayData += '<span><b>'+value+'</b>   <input type="checkbox" name="brandToFilter" id='+value+' onclick="applyFilterOnBrand('+value+')"/></span><br/>';
+        });
        $("#displayBrands").empty();
        $("#displayBrands").append(brandDisplayData);
       
@@ -91,7 +99,7 @@ function displayProductData(subCategory) {
             productData += '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 main">';
             productData += '<img class="card-img-top" src= ' + value.imageUrl + ' height="300px" width="200px">';
             productData += '<div class="card">';
-            productData += '<h4 >' + value.name + '</h4>' + value.price;
+            productData += '<h4 >' + value.name + '</h4>'+'Rs. ' + value.price;
             productData += '</div>';
             productData += '<button  class="btn btn-info btn-sm" id=' + value.productId + ' onclick="addToCart(' + value.productId + ')"><span class="glyphicon glyphicon-shopping-cart"></span> Add</button>' + "  " + '<button  class="btn btn-warning btn-sm" id=wish' + value.productId + ' onclick="addToWishList(' + value.productId + ')"><span class="glyphicon glyphicon-heart"></span> WishList</button><br/><br/>';
             productData += '</div>';
@@ -109,16 +117,14 @@ function displayProductData(subCategory) {
 var cartData = [];
 function addToCart(e) {
     $.getJSON("../json/data.json", function (data) {
-        $.each(data.products, function (key, value) {
-            // console.log(localStorage.getItem('category'))
+        $.each(data, function (key, value) {
             if (value.productId == e.id) {
-                // window.location = "login.html";
                 cartData.push(value);
             }
         });
         //console.log(perticularData);
     });
-    alert("Product Added To Cart");
+    alert("Product Added To Cart");   
 }
 
 
@@ -127,8 +133,8 @@ function goTocart() {
     console.log("in cart")
     $("#displayBrands").hide();
     var productData = '';
+    productData += '<button  class="btn btn-success"  onclick="buyProduct()"><span class="glyphicon glyphicon-ok"></span> Buy</button>';
     $.each(cartData, function (key, value) {
-
         productData += '<table  id=table' + value.productId + ' class="table-responsive">';
         productData += '<tr><td class="imgtd" rowspan="11"><img  src=' + value.imageUrl + ' height="300" width="250"></td></tr>';
         productData += '<tr><td><b> Product Id : </b></td> <td> ' + value.productId + '</td></tr>';
@@ -138,9 +144,10 @@ function goTocart() {
         productData += '<tr ><td><b>Description :</b></td><td>' + value.description + '</td></tr>';
         productData += '<tr><td> <b>Discount :</b></td> <td> ' + value.discount + '%</td></tr>';
         productData += '<tr><td> <b>Rating : </b></td> <td>' + value.rating + ' </td></tr>';
-        productData += '<tr><td> <button  class="btn btn-success" id=buy' + value.productId + ' onclick="buyProduct(' + value.productId + ' )"><span class="glyphicon glyphicon-ok"></span> Buy</button>';
-        productData += '<td> <button  class="btn btn-danger" id=' + value.productId + ' onclick="removeProductFromCart(' + value.productId + ')"><span class="glyphicon glyphicon-trash"></span> Remove</button></tr>';
+        productData += '<tr><td> <button  class="btn btn-danger" id=' + value.productId + ' onclick="removeProductFromCart(' + value.productId + ')"><span class="glyphicon glyphicon-trash"></span> Remove</button></tr>';
     });
+
+    
     $("#productDataTable").empty();
     $("#productDataTable").append(productData);
 }
@@ -163,8 +170,8 @@ function removeProductFromCart(e) {
 }
 
 /*******buy from cart********/
-function buyProduct(e) {
-    console.log(e.id);
+function buyProduct() {
+    alert("Thank you for shopping");
 }
 
 
@@ -178,7 +185,7 @@ function addToWishList(wishId) {
     console.log("wish" + wishId.id);
     $.getJSON("../json/data.json", function (data) {
 
-        $.each(data.products, function (key, value) {
+        $.each(data, function (key, value) {
             // console.log(localStorage.getItem('category'))
             if (value.productId == wishId.id) {
                 // window.location = "login.html";
@@ -198,6 +205,7 @@ function goToWishList() {
     console.log("in wishList")
     $("#displayBrands").hide();
     var productData = '';
+    productData += '<button  class="btn btn-success" onclick="buyProduct()"><span class="glyphicon glyphicon-ok"></span> Buy</button>';
     $.each(wishListData, function (key, value) {
 
         productData += '<table  id=table' + value.productId + ' class="table-responsive">';
@@ -209,9 +217,10 @@ function goToWishList() {
         productData += '<tr ><td><b>Description :</b></td><td>' + value.description + '</td></tr>';
         productData += '<tr><td> <b>Discount :</b></td> <td> ' + value.discount + '%</td></tr>';
         productData += '<tr><td> <b>Rating : </b></td> <td>' + value.rating + ' </td></tr>';
-        productData += '<tr><td> <button  class="btn btn-success" id=buy' + value.productId + ' onclick="buyProduct(' + value.productId + ' )"><span class="glyphicon glyphicon-ok"></span> Buy</button>';
-        productData += '<td> <button  class="btn btn-danger" id=' + value.productId + ' onclick="removeProductFromWishList(' + value.productId + ')"><span class="glyphicon glyphicon-trash"></span> Remove</button></tr>';
+        productData += '<tr><td> <button  class="btn btn-danger" id=' + value.productId + ' onclick="removeProductFromWishList(' + value.productId + ')"><span class="glyphicon glyphicon-trash"></span> Remove</button></tr>';
     });
+
+   
     $("#productDataTable").empty();
     $("#productDataTable").append(productData);
 }
@@ -243,22 +252,24 @@ function applyFilterOnBrand(subCategory)
 {
     //console.log(subCategory)
     //console.log(subCategory.id);
-    var brands = document.getElementsByName("brand");
+    var bradsInFile = document.getElementsByName("brandToFilter");
     var checkedBrands = [];
     var dispalyFliterData = [];
-    for (b of brands) {
-        if (b.checked) {
-            checkedBrands.push(b.id);
+    for (brand of bradsInFile) {
+        if (brand.checked) {
+            checkedBrands.push(brand.id);
         }
     }
+    console.log(checkedBrands);
     $.getJSON("../json/data.json", function (data) {
-        $.each(data.products, function (key, value) {
+        $.each(data, function (key, value) {
             if(checkedBrands.includes(value.brand))
             {
                 dispalyFliterData.push(value);
             }
         });
-        //console.log(dispalyFliterData);
+        console.log(dispalyFliterData);
+      
         var productData = '';
         $.each(dispalyFliterData, function (key, value) {
             productData += '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 main">';
@@ -272,4 +283,10 @@ function applyFilterOnBrand(subCategory)
         $("#productDataTable").empty();
         $("#productDataTable").append(productData);
     });
+    
 }
+
+
+
+
+
