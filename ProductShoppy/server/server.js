@@ -3,16 +3,11 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var parser = require('body-parser');
-var cors = require('cors');
-
 var dataInFile = require("../json/data.json");
-
-
-
 
 let products = []
 /****************getting all products********************/
-app.get('/getProducts', (req, res)=>{
+app.get('/productShoppy/getProducts', (req, res)=>{
     fs.readFile("../json/data.json", (err, data)=> {
         products = JSON.parse(data.toString())
        //console.log(products)
@@ -21,30 +16,29 @@ app.get('/getProducts', (req, res)=>{
 });
 
 
-
-
-
 app.use(parser.json())
-/********************deleting product with id**************************/
-app.route('/deleteProduct/:id',cors()).delete((req,res)=>{
-    console.log(req.params.id)
-    
-   fs.readFile('../json/data.json',function(err,data){
-       // res.writeHead(200,{'Content-Type':'text/plain'});
-       dataInFile = JSON.parse(data.toLocaleString());
-            for(i=0;i<dataInFile.length;i++)
-            {
-                if(dataInFile[i].productId==req.params.id)
-                {
-                    console.log("hello")
-                    dataInFile[i].splice(i,1);
-                }
-            }
-          // res.send(dataInFile);
-       
-    });
-    fs.writeFileSync('../json/data.json',JSON.stringify(dataInFile))
-    res.send(dataInFile)
+/*****************adding data in file************************/
+app.post('/productShoppy/addProductData', (req, res)=>{
+    dataInFile.push(req.body);
+    res.send(dataInFile);
+    fs.writeFileSync("../json/data.json", JSON.stringify(dataInFile));
+    console.log("Added a new product");
+});
+
+
+/*************************** deleting product*************/
+app.get('/productShoppy/deleteProduct/:id',(req,res)=>
+{
+    var id = req.params.id;
+    for (var i = 0; i < dataInFile.length; i++) {
+        if (dataInFile[i].productId == id)
+        {
+          dataInFile.splice(i, 1);
+          res.send(dataInFile);
+        }
+      }
+      fs.writeFileSync("../json/data.json", JSON.stringify(dataInFile));
+      console.log("Deleted product with id: "+ id);
 });
 
 
