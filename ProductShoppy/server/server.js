@@ -30,6 +30,7 @@ app.post('/productShoppy/addProductData', (req, res)=>{
 app.get('/productShoppy/deleteProduct/:id',(req,res)=>
 {
     var id = req.params.id;
+    console.log(id);
     for (var i = 0; i < dataInFile.length; i++) {
         if (dataInFile[i].productId == id)
         {
